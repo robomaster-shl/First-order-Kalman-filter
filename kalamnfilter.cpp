@@ -10,7 +10,6 @@ void kalmanCreate(kalman *p,float T_Q,float T_R)
     p->A = 1;
     p->H = 1;
     p->X_mid = p->X_last;
-    //return p;
 }
 
 
