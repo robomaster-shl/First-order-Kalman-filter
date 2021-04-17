@@ -15,9 +15,9 @@ void kalmanCreate(kalman int p,float T_Q,float T_R)
 
 float KalmanFilter(kalman int  p,float dat)
 {
-    X_mid =A*p->X_last;                    
-    P_mid = A*p->P_last+Q;               
-    kg = p->P_mid/(P_mid+R);            
+    X_mid =A*X_last;                    
+    P_mid = A*P_last+Q;               
+    kg = P_mid/(P_mid+R);            
     X_now = X_mid+kg*(dat-X_mid);     
     P_now = (1-kg)*P_mid;            
     P_last = P_now;                         //状态更新
