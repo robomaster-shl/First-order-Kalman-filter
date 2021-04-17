@@ -13,7 +13,7 @@ void kalmanCreate(kalman  p,float T_Q,float T_R)
 }
 
 
-float KalmanFilter(kalman  p,float dat)
+float KalmanFilter(float dat)
 {
     X_mid =A*X_last;                    
     P_mid = A*P_last+Q;               
