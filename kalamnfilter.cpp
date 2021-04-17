@@ -1,26 +1,26 @@
 #include "kalman.h"
 
-void kalmanCreate(kalman *p,float T_Q,float T_R)
+void kalmanCreate(kalman int p,float T_Q,float T_R)
 {
     //kalman* p = ( kalman*)malloc(sizeof( kalman));
-    p->X_last = (float)0;
-    p->P_last = 0;
-    p->Q = T_Q;
-    p->R = T_R;
-    p->A = 1;
-    p->H = 1;
-    p->X_mid = p->X_last;
+    X_last = (float)0;
+    P_last = 0;
+    Q = T_Q;
+    R = T_R;
+    A = 1;
+    H = 1;
+    X_mid = X_last;
 }
 
 
-float KalmanFilter(kalman* p,float dat)
+float KalmanFilter(kalman int  p,float dat)
 {
-    p->X_mid =p->A*p->X_last;                    
-    p->P_mid = p->A*p->P_last+p->Q;               
-    p->kg = p->P_mid/(p->P_mid+p->R);            
-    p->X_now = p->X_mid+p->kg*(dat-p->X_mid);     
-    p->P_now = (1-p->kg)*p->P_mid;            
-    p->P_last = p->P_now;                         //状态更新
-    p->X_last = p->X_now;
-    return p->X_now;
+    X_mid =A*p->X_last;                    
+    P_mid = A*p->P_last+Q;               
+    kg = p->P_mid/(P_mid+R);            
+    X_now = X_mid+kg*(dat-X_mid);     
+    P_now = (1-kg)*P_mid;            
+    P_last = P_now;                         //状态更新
+    X_last = X_now;
+    return X_now;
 }
