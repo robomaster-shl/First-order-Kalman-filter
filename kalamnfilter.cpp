@@ -1,6 +1,6 @@
 #include "kalman.h"
 
-void kalmanCreate(kalman  p,float T_Q,float T_R)
+void kalmanCreate(float T_Q,float T_R)
 {
     //kalman* p = ( kalman*)malloc(sizeof( kalman));
     X_last = (float)0;
